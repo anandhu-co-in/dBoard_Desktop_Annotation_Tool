@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dBoad - Download</title>
+    <link rel="stylesheet" href="dstyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        
+    <header class="main-header"> 
+        <div class="Logo">
+            <h1>dBoard</h1>
+            <div class="subtitle">annotate your live desktop</div>
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Index2.html">Home</a></li>
+                <li><a href="#">Download</a></li>
+            </ul>                               
+        </nav>
+    </header>
+
+    </div>
+
+    <section class="main-section">
+        <div class="container">
+            
+
+            <div class="join-form">
+                <!-- <form action="" class="joinform"> -->
+                <form id="submit-form" class="gform pure-form pure-form-stacked joinform" data-email="example@email.net" action="">
+      
+                    <div class="input-group">
+                        <label>Nickname :</label>
+                        <input id="name" name="name" placeholder="Feel free to be anonymous!" required/>   
+                    </div>
+                    <div class="input-group">
+                        <label>Why do you need dBoard :</label>
+                        <textarea id="message" name="WhydBoard" rows="10" placeholder="Tell us a bit about why you need dBoard. This will help us to make improvements..." required></textarea>
+                    </div>    
+                    <div class="input-group">
+                        <button type="submit" class="btn">Start Download</button>      
+                    </div>
+                </form>
+            </div>
+   
+        </div>
+    </section>
+    
+
+        <footer class="homefooter">
+            <div class="container">dBoard is a work in progress. Stable version will be released soon</div>         
+        </footer>
+    
+
+
+        <script>
+            $("#submit-form").submit((e)=>{
+
+                alert("Thanks for downloading dBoard. Please wait few seconds for the download to start!")
+
+                e.preventDefault()
+                $.ajax({
+                    url:"https://script.google.com/macros/s/AKfycbwGuepeg7eIIZ_H04CLBfBrNcXBpWO7rWaTunw-Olwz334kIVA/exec",
+                    data:$("#submit-form").serialize(),
+                    method:"post",
+                    success:function (response){
+                        
+                        window.location.reload()
+                        window.location.href="thankyou.html"
+                    },
+                    error:function (err){
+                        alert("Download Failed")
+        
+                    }
+                })
+            })
+
+        </script>
+
+
+
+
+    
+<script src="dbScript.js"></script>
+    
+</body>
+</html>
